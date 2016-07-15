@@ -10,5 +10,9 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
+gem 'kaminari', github: "amatsuda/kaminari", branch: '0-17-stable'
+gem 'mongoid', github: 'mongodb/mongoid'
+
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+gem 'devise', github: 'plataformatec/devise', group: [:development]

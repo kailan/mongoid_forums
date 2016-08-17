@@ -7,8 +7,8 @@ module MongoidForums
       before_action :set_user, only: [:add_admin, :remove_admin]
 
       def index
-        @admins = User.where(mongoid_admin: true)
-        @non_admins = User.where(mongoid_admin: false)
+        @admins = MongoidForums.user_class.where(mongoid_admin: true)
+        @non_admins = MongoidForums.user_class.where(mongoid_admin: false)
       end
 
       def add_admin
@@ -26,7 +26,7 @@ module MongoidForums
       private
 
       def set_user
-        @user = User.find(params[:user][:id])
+        @user = MongoidForums.user_class.find(params[:user][:id])
       end
 
     end

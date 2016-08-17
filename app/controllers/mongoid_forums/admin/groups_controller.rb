@@ -40,8 +40,8 @@ module MongoidForums
 
       def show
         @group = Group.find(params[:id])
-        @group_members = @group.members.map{|member_id| User.find(member_id) }
-        @users = User.all.select{ |user| !@group.members.include?(user.id) }
+        @group_members = @group.members.map{|member_id| MongoidForums.user_class.find(member_id) }
+        @users = MongoidForums.user_class.all.select{ |user| !@group.members.include?(user.id) }
       end
 
       def destroy
@@ -54,7 +54,7 @@ module MongoidForums
       ### Temporary Methods - Try Not To Cringe Too Much <3 ###
       def add_member
         group = Group.find(params.require(:group_id))
-        user = User.find(params[:user][:id])
+        user = MongoidForums.user_class.find(params[:user][:id])
 
         group.members << user.id unless group.members.include?(user.id)
         group.save
@@ -64,7 +64,7 @@ module MongoidForums
 
       def remove_member
         group = Group.find(params.require(:group_id))
-        user = User.find(params[:user][:id])
+        user = MongoidForums.user_class.find(params[:user][:id])
 
         group.members.delete(user.id)
         group.save

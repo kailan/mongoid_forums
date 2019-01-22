@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency 'rails', '>= 5.0.0.rc1', '< 5.1'
+  s.add_dependency 'rails', '~> 5.1'
   s.add_dependency 'simple_form'
   s.add_dependency 'sanitize', '2.0.6'
   s.add_dependency 'cancancan', '~> 1.10'
-  s.add_dependency 'decorators', '2.0.1'
+  s.add_dependency 'decorators', '2.0.4'
   s.add_dependency 'haml'
   s.add_dependency 'gemoji', '= 2.1.0'
 
